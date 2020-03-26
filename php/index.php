@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>тест1</title>
+    <title>версия-1</title>
   </head>
   <body>
     <?
-      echo "<h1>тестим</h1>";
+      echo "<h1>версия-1</h1>";
       //в мастер
     ?>
   </body>
