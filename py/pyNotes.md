@@ -15,8 +15,8 @@
 
 >6. пример файла: 
 
+<pre>
 ---------------------
-
 #!C:\Users\User\AppData\Local\Programs\Python\Python38-32\python.exe
 
 print ("Content-Type: text/html\r\n")
@@ -26,3 +26,4 @@ print ("<p>параграф</p><h1>- * -</h1>")
 print ("</body></html>")
 
 ---------------------
+</pre>
