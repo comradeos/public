@@ -13,4 +13,4 @@
 
 > 5. перезапускаем сервер
 
->6. пример файла: webPython.py
+>6. пример файла: [webPython.py](https://github.com/comradeos/public/blob/master/py/webPython/webPython.py)
