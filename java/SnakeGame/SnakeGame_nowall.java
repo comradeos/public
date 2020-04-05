@@ -29,6 +29,13 @@ class map {
 	}
 }
 
+/*
+
+разобраться в этом бреде ) 
+
+*/
+
+
 class food {
 	int x;
 	int y;
