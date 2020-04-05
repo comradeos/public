@@ -1,6 +1,8 @@
-import java.awt.event.KeyAdapter;
+/*SNAKE GAME*/
+
+import java.awt.event.KeyAdapter; // ресерч
 import java.awt.event.KeyEvent;
-import javax.swing.JFrame;
+import javax.swing.JFrame; // ресерч
 import java.io.IOException;
 
 class snake {
@@ -28,13 +30,6 @@ class map {
 		width = W;
 	}
 }
-
-/*
-
-разобраться в этом бреде ) 
-
-*/
-
 
 class food {
 	int x;
