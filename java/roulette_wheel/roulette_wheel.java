@@ -48,6 +48,8 @@ public class roulette_wheel {
                 int _int = Integer.parseInt(_var);
                 if ((_int < 0) || (_int >36)) {
                     JOptionPane.showMessageDialog(null,"От 0 до 36, баран!");
+                    _text.setText(null);
+                    _text.requestFocus(true);
                 } else {
                     _label.setVisible(false);
                     _text.setVisible(false);
@@ -79,12 +81,14 @@ public class roulette_wheel {
                                     break;
                             }
                         }
+                        _reset.requestFocus(true);
                     }
-
                     //_panel.setBackground(Color.red);
                 }
             } catch (Exception _err) {
                 JOptionPane.showMessageDialog(null,"Число, баран!");
+                _text.setText(null);
+                _text.requestFocus(true);
             }
         });
 
@@ -96,6 +100,7 @@ public class roulette_wheel {
             _label.setVisible(true);
             _text.setVisible(true);
             _number.setForeground(null);
+            _text.requestFocus(true);
         });
     }
 
