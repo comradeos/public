@@ -1,7 +1,17 @@
-try:
-    base = int(input())
-except ValueError:
-    print("не число")
+import time
 
-print("<<<", base)
+time.sleep(0)
+
+while True:
+    base = input()
+    try:
+        base = int(base)
+        print("<<<", base)
+    except ValueError:
+        if base == "stop":
+            exit()
+        print("не число")
+
+
+
 
