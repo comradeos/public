@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 def try_input():
     time = 5
     for i in range(0, time, 1):
