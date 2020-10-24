@@ -11,7 +11,13 @@ int main() {
 	SetConsoleOutputCP(1251);
 	setlocale(0, "");
 
-    int size = 27;
+    cout << "Введите размер ромба: ";
+
+    int size;
+
+    cin >> size;
+
+    cout << "\n";
 
     for (int i = size; i >= 1; i--) {
         for (int j = 0; j <= size; j++) {
@@ -38,7 +44,6 @@ int main() {
     }
 
     cout << "\n";
-
 	system("pause");
 }
 
