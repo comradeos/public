@@ -459,7 +459,7 @@ class application {
 
 }
 
-public class chronicon_crystals_2 {
+public class chroniconCrystals2 {
     public static void main(String[] args) throws InterruptedException {
         application application = new application();
         application.window();
