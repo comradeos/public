@@ -87,7 +87,7 @@ class application {
 
 }
 
-public class win_creator {
+public class winCreator {
     public static void main(String[] args) {
         application application = new application();
         application.window();
