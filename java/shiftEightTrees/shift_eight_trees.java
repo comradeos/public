@@ -1,4 +1,4 @@
-public class shift_eight_trees {
+public class shiftEightTrees {
     public static void main(String[] args) {
         System.out.println("shift_eight_trees v.1.0:\n");
 
