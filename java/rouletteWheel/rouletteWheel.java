@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class roulette_wheel {
+public class rouletteWheel {
     JFrame _frame = new JFrame();
     JPanel _panel = new JPanel();
     JLabel _label = new JLabel();
