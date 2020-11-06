@@ -51,7 +51,7 @@ class application {
 
     JLabel messageCounter = new JLabel();
 
-    JTextArea textArea = new JTextArea(7,23);
+    JTextArea textArea = new JTextArea(7,21);
 
     // цвет
     Color red = new Color(255, 118, 118);
@@ -59,7 +59,8 @@ class application {
     Color blue = new Color(128, 173, 255);
     Color temp = new Color(212, 212, 212);
 
-    Font font = new Font("Serif", Font.BOLD, 25);
+    Font font = new Font("Serif", Font.BOLD, 22);
+    Font font2 = new Font("Serif", Font.PLAIN, 14);
 
     Color [] colorList = {red, yellow, blue};
     JButton [] buttonList = {B00, B01, B02, B10, B11, B12, B20, B21, B22};
@@ -69,6 +70,8 @@ class application {
             {yellow,blue,red},
             {blue,yellow,red}
     };
+
+    String log = "";
 
     void generateMatrix() {
         for (int i = 0; i < random.nextInt(100); i++ ) {
@@ -124,7 +127,8 @@ class application {
 
         matrix = savedRandomMatrix;
 
-        messageCounter.setText("Randomized!");
+        messageCounter.setText("Перемешано!");
+        textArea.setText("Тут будут записаны ходы. ");
     }
 
     boolean auto_rolling = true;
@@ -339,14 +343,16 @@ class application {
         layout.putConstraint(SpringLayout.WEST, messageCounter, 10, SpringLayout.WEST, container);
         layout.putConstraint(SpringLayout.NORTH, messageCounter, 280, SpringLayout.NORTH, container);
 
-        textArea.setText("\n  Ну тут типа логи будут писаться когда то...");
+        textArea.setText("Ходы: ");
         //textArea.setFont(font);
-        textArea.setSize(5,10);
+
+        textArea.setBackground(new Color(238, 238, 238, 255));
+        textArea.setFont(font2);
         //textArea.setBorder(BorderFactory.createCompoundBorder());
         textArea.setLineWrap(true);
         container.add(textArea);
-        layout.putConstraint(SpringLayout.WEST, textArea, 8, SpringLayout.WEST, container);
-        layout.putConstraint(SpringLayout.NORTH, textArea, 340, SpringLayout.NORTH, container);
+        layout.putConstraint(SpringLayout.WEST, textArea, 12, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, textArea, 325, SpringLayout.NORTH, container);
 
         //textArea
 
@@ -387,10 +393,6 @@ class application {
         B22.addActionListener(e -> { change_color(2,2); });
     }
 
-    void roll_color(int a, int b) {
-        // !!!
-    }
-
     void act_B4U() {
         temp = matrix[0][0];
         matrix[0][0] = matrix[1][0];
@@ -398,7 +400,9 @@ class application {
         matrix[2][0] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "4U, ";
+        textArea.append(log);
     }
 
     void act_B5U() {
@@ -408,7 +412,9 @@ class application {
         matrix[2][1] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "5U, ";
+        textArea.append(log);
     }
 
     void act_B6U() {
@@ -418,7 +424,9 @@ class application {
         matrix[2][2] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "6U, ";
+        textArea.append(log);
     }
 
     void act_B4D() {
@@ -428,7 +436,9 @@ class application {
         matrix[0][0] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "4D, ";
+        textArea.append(log);
     }
 
     void act_B5D() {
@@ -438,7 +448,9 @@ class application {
         matrix[0][1] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "5D, ";
+        textArea.append(log);
     }
 
     void act_B6D() {
@@ -448,7 +460,9 @@ class application {
         matrix[0][2] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "6D, ";
+        textArea.append(log);
     }
 
     void act_B1L() {
@@ -458,7 +472,9 @@ class application {
         matrix[0][2] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "1L, ";
+        textArea.append(log);
     }
 
     void act_B1R() {
@@ -468,7 +484,9 @@ class application {
         matrix[0][0] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "1R, ";
+        textArea.append(log);
     }
 
     void act_B2L() {
@@ -478,7 +496,9 @@ class application {
         matrix[1][2] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "2L, ";
+        textArea.append(log);
     }
 
     void act_B2R() {
@@ -488,7 +508,9 @@ class application {
         matrix[1][0] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "2R, ";
+        textArea.append(log);
     }
 
     void act_B3L() {
@@ -498,7 +520,9 @@ class application {
         matrix[2][2] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "3L, ";
+        textArea.append(log);
     }
 
     void act_B3R() {
@@ -508,26 +532,24 @@ class application {
         matrix[2][0] = temp;
         update();
         stepCounter++;
-        labelCounter.setText(Integer.toString(stepCounter));
+        messageCounter.setText("Решаем руками...");
+        log = log + "3R, ";
+        textArea.append(log);
     }
 
     int stepCounter = 0;
+
     void auto_roll() {
-
-//        for (int i = 4; i >= 0; i--){
-//            try { Thread.sleep(2000); } catch (Exception e) { /*error*/ }
-//            messageCounter.setText("Bot runs in " + i);
-//        }
-
         messageCounter.setText(null);
         auto_rolling = true;
+
         while (auto_rolling == true) {
             stepCounter++;
             Random random = new Random();
             int random_number = random.nextInt(11);
             System.out.print(random_number + " ");
             if (stepCounter % 17 == 0) { System.out.println(); }
-            try { Thread.sleep(10); } catch (Exception e) { System.out.println("err");}
+            try { Thread.sleep(1); } catch (Exception e) { System.out.println("err");}
             switch (random_number) {
                 case 0:
                     act_B4U();
@@ -576,46 +598,19 @@ class application {
                 matrix[0][1] == matrix[1][1] && matrix[1][1] == matrix[2][1] &&
                 matrix[0][2] == matrix[1][2] && matrix[1][2] == matrix[2][2] ) {
                 auto_rolling = false;
-                messageCounter.setText("Solved!");
-                textArea.setText("\n  Ну худо-бедно порешалось...");
+                messageCounter.setText("Порешано!");
+                String st;
+                if (stepCounter % 10 == 1) { st = "шаг"; } else
+                if (stepCounter % 10 == 2 ||
+                    stepCounter % 10 == 3 ||
+                    stepCounter % 10 == 4 ) { st = "шага"; } else { st = "шагов"; }
+                log = "";
+                textArea.setText("Ну худо-бедно порешалось... \nЗа " + stepCounter + " " + st + ".");
             }
         }
     }
 
-    void setRandom() {
-
-        stepCounter = 0;
-        labelCounter.setText(Integer.toString(stepCounter));
-
-        /*
-        int randomColorIndex;
-        int redCounter = 0;
-        int yellowCounter = 0;
-        int blueCounter = 0;
-
-        for (int i = 0; i < buttonList.length; i++) {
-
-                randomColorIndex = random.nextInt(3);
-                System.out.println("randomColorIndex:: " + randomColorIndex + "");
-
-                if (randomColorIndex == 0) { redCounter++; }
-                if (randomColorIndex == 1) { yellowCounter++;}
-                if (randomColorIndex == 2) { blueCounter++; }
-
-                System.out.print(" i #" + i + " | ");
-                System.out.print("redCounter: " + redCounter + " | ");
-                System.out.print("yellowCounter: " + yellowCounter + " | ");
-                System.out.print("blueCounter: " + blueCounter + " | \n\n");
-
-                buttonList[i].setBackground(colorList[randomColorIndex]);
-
-            }
-            System.out.println();
-
-         */
-        }
-
-    void actions() throws InterruptedException{
+    void actions() {
         B4U.addActionListener(e -> act_B4U());
         B5U.addActionListener(e -> act_B5U());
         B6U.addActionListener(e -> act_B6U());
@@ -629,7 +624,7 @@ class application {
         B3L.addActionListener(e -> act_B3L());
         B3R.addActionListener(e -> act_B3R());
         AUTO_START.addActionListener(e -> auto_roll());
-        SET_RANDOM.addActionListener(e -> generateMatrix());
+        SET_RANDOM.addActionListener(e -> { generateMatrix(); log = ""; });
     }
 
     void randNumExp() {
@@ -638,7 +633,7 @@ class application {
             Random random = new Random();
             int random_number = random.nextInt(11);
             System.out.println(random_number + " ");
-            try { Thread.sleep(20); } catch (Exception e) { System.out.println("err");}
+            try { Thread.sleep(20); } catch (Exception e) { /* error */ }
             switch (random_number) {
                 case 0:
                     act_B4U();
@@ -653,6 +648,7 @@ public class chroniconCrystals2 {
         application application = new application();
         application.window();
         application.generateMatrix();
+        application.log = "";
         application.actions();
         //application.colors();
         //application.auto_roll();
