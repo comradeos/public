@@ -68,11 +68,55 @@ class application {
             {blue,yellow,red}
     };
 
-    boolean auto_rolling = true;
-
-    void add_button(String name, String text, int width, int height, int west, int north) {
-
+    void generateMatrix() {
+        for (int i = 0; i < random.nextInt(100); i++ ) {
+            int random_number = random.nextInt(11);
+            System.out.println(random_number + " ");
+            try { Thread.sleep(10); } catch (Exception e) { /*error*/ }
+            switch (random_number) {
+                case 0:
+                    act_B4U();
+                    break;
+                case 1:
+                    act_B5U();
+                    break;
+                case 2:
+                    act_B6U();
+                    break;
+                case 3:
+                    act_B4D();
+                    break;
+                case 4:
+                    act_B5D();
+                    break;
+                case 5:
+                    act_B6D();
+                    break;
+                case 6:
+                    act_B1L();
+                    break;
+                case 7:
+                    act_B1R();
+                    break;
+                case 8:
+                    act_B2L();
+                    break;
+                case 9:
+                    act_B2R();
+                    break;
+                case 10:
+                    act_B3L();
+                    break;
+                case 11:
+                    act_B3R();
+                    break;
+                default:
+            }
+        }
+        messageCounter.setText("Randomized!");
     }
+
+    boolean auto_rolling = true;
 
     void update() {
 
@@ -449,7 +493,6 @@ class application {
 
     int stepCounter = 0;
     void auto_roll() {
-        messageCounter.setText("Работаем...");
         auto_rolling = true;
         while (auto_rolling == true) {
             stepCounter++;
@@ -508,7 +551,7 @@ class application {
                 auto_rolling = false;
                 try { Thread.sleep(100); } catch (Exception e) {}
                 labelCounter.setText(Integer.toString(stepCounter));
-                messageCounter.setText("Всё!");
+                messageCounter.setText("Solved!");
             }
         }
     }
@@ -547,20 +590,20 @@ class application {
         }
 
     void actions() throws InterruptedException{
-        B4U.addActionListener(e -> { act_B4U(); });
-        B5U.addActionListener(e -> { act_B5U(); });
-        B6U.addActionListener(e -> { act_B6U(); });
-        B4D.addActionListener(e -> { act_B4D(); });
-        B5D.addActionListener(e -> { act_B5D(); });
-        B6D.addActionListener(e -> { act_B6D(); });
-        B1L.addActionListener(e -> { act_B1L(); });
-        B1R.addActionListener(e -> { act_B1R(); });
-        B2L.addActionListener(e -> { act_B2L(); });
-        B2R.addActionListener(e -> { act_B2R(); });
-        B3L.addActionListener(e -> { act_B3L(); });
-        B3R.addActionListener(e -> { act_B3R(); });
-        AUTO_START.addActionListener(e -> { auto_roll(); });
-        SET_RANDOM.addActionListener(e -> { setRandom(); });
+        B4U.addActionListener(e -> act_B4U());
+        B5U.addActionListener(e -> act_B5U());
+        B6U.addActionListener(e -> act_B6U());
+        B4D.addActionListener(e -> act_B4D());
+        B5D.addActionListener(e -> act_B5D());
+        B6D.addActionListener(e -> act_B6D());
+        B1L.addActionListener(e -> act_B1L());
+        B1R.addActionListener(e -> act_B1R());
+        B2L.addActionListener(e -> act_B2L());
+        B2R.addActionListener(e -> act_B2R());
+        B3L.addActionListener(e -> act_B3L());
+        B3R.addActionListener(e -> act_B3R());
+        AUTO_START.addActionListener(e -> auto_roll());
+        SET_RANDOM.addActionListener(e -> generateMatrix());
     }
 
     void randNumExp() {
@@ -584,16 +627,7 @@ public class chroniconCrystals2 {
         application application = new application();
         application.window();
         application.actions();
-        application.colors();
-
-        application.messageCounter.setText("Авторешение через 3");
-        try { Thread.sleep(1500); } catch (Exception e) {}
-        application.messageCounter.setText("Авторешение через 2");
-        try { Thread.sleep(1500); } catch (Exception e) {}
-        application.messageCounter.setText("Авторешение через 1");
-        try { Thread.sleep(1500); } catch (Exception e) {}
-
-        application.auto_roll();
-
+        //application.colors();
+        //application.auto_roll();
     }
 }
