@@ -7,6 +7,8 @@ class application {
     Container container = frame.getContentPane();
     SpringLayout layout = new SpringLayout();
 
+    Random random = new Random();
+
     // управление
     // горизонтальные кнопки
     JButton B1L = new JButton();
@@ -40,8 +42,14 @@ class application {
     JButton RND = new JButton();
     JButton TMP = new JButton();
 
+    JButton SET_RANDOM = new JButton();
     JButton AUTO_START = new JButton();
     JButton AUTO_STOP = new JButton();
+
+    JLabel labelCounter = new JLabel();
+    JLabel labelSteps = new JLabel();
+
+    JLabel messageCounter = new JLabel();
 
     // цвет
     Color red = new Color(255, 118, 118);
@@ -49,10 +57,15 @@ class application {
     Color blue = new Color(128, 173, 255);
     Color temp = new Color(212, 212, 212);
 
+    Font font = new Font("Serif", Font.BOLD, 25);
+
+    Color [] colorList = {red, yellow, blue};
+    JButton [] buttonList = {B00, B01, B02, B10, B11, B12, B20, B21, B22};
+
     Color [][] matrix = {
-        {red,red,red},
-        {yellow,yellow,yellow},
-        {blue,blue,blue}
+            {red,yellow,blue},
+            {yellow,blue,red},
+            {blue,yellow,red}
     };
 
     boolean auto_rolling = true;
@@ -235,7 +248,7 @@ class application {
         AUTO_START.setText("AU");
         AUTO_START.setFocusPainted(false);
         AUTO_START.setPreferredSize(new Dimension(50, 50));
-        //container.add(AUTO_START);
+        container.add(AUTO_START);
         layout.putConstraint(SpringLayout.WEST, AUTO_START, 10, SpringLayout.WEST, container);
         layout.putConstraint(SpringLayout.NORTH, AUTO_START, 210, SpringLayout.NORTH, container);
 
@@ -245,6 +258,34 @@ class application {
         //container.add(AUTO_STOP);
         layout.putConstraint(SpringLayout.WEST, AUTO_STOP, 210, SpringLayout.WEST, container);
         layout.putConstraint(SpringLayout.NORTH, AUTO_STOP, 210, SpringLayout.NORTH, container);
+
+        SET_RANDOM.setText("RN");
+        SET_RANDOM.setFocusPainted(false);
+        SET_RANDOM.setPreferredSize(new Dimension(50, 50));
+        container.add(SET_RANDOM);
+        layout.putConstraint(SpringLayout.WEST, SET_RANDOM, 210, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, SET_RANDOM, 10, SpringLayout.NORTH, container);
+
+        labelCounter.setText("0");
+        labelCounter.setFont(font);
+        //container.add(labelCounter);
+        layout.putConstraint(SpringLayout.WEST, labelCounter, 100, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, labelCounter, 280, SpringLayout.NORTH, container);
+
+        labelSteps.setText("Steps:");
+        labelSteps.setFont(font);
+        //container.add(labelSteps);
+        layout.putConstraint(SpringLayout.WEST, labelSteps, 15, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, labelSteps, 280, SpringLayout.NORTH, container);
+
+        messageCounter.setText("");
+        messageCounter.setFont(font);
+        container.add(messageCounter);
+        layout.putConstraint(SpringLayout.WEST, messageCounter, 10, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, messageCounter, 280, SpringLayout.NORTH, container);
+
+        //messageCounter
+
     }
 
     void window() {
@@ -292,6 +333,8 @@ class application {
         matrix[1][0] = matrix[2][0];
         matrix[2][0] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B5U() {
@@ -300,6 +343,8 @@ class application {
         matrix[1][1] = matrix[2][1];
         matrix[2][1] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B6U() {
@@ -308,6 +353,8 @@ class application {
         matrix[1][2] = matrix[2][2];
         matrix[2][2] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B4D() {
@@ -316,6 +363,8 @@ class application {
         matrix[1][0] = matrix[0][0];
         matrix[0][0] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B5D() {
@@ -324,6 +373,8 @@ class application {
         matrix[1][1] = matrix[0][1];
         matrix[0][1] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B6D() {
@@ -332,6 +383,8 @@ class application {
         matrix[1][2] = matrix[0][2];
         matrix[0][2] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B1L() {
@@ -340,6 +393,8 @@ class application {
         matrix[0][1] = matrix[0][2];
         matrix[0][2] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B1R() {
@@ -348,6 +403,8 @@ class application {
         matrix[0][1] = matrix[0][0];
         matrix[0][0] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B2L() {
@@ -356,6 +413,8 @@ class application {
         matrix[1][1] = matrix[1][2];
         matrix[1][2] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B2R() {
@@ -364,6 +423,8 @@ class application {
         matrix[1][1] = matrix[1][0];
         matrix[1][0] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B3L() {
@@ -372,6 +433,8 @@ class application {
         matrix[2][1] = matrix[2][2];
         matrix[2][2] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
     void act_B3R() {
@@ -380,61 +443,108 @@ class application {
         matrix[2][1] = matrix[2][0];
         matrix[2][0] = temp;
         update();
+        stepCounter++;
+        labelCounter.setText(Integer.toString(stepCounter));
     }
 
+    int stepCounter = 0;
+    void auto_roll() {
+        messageCounter.setText("Работаем...");
+        auto_rolling = true;
+        while (auto_rolling == true) {
+            stepCounter++;
+            Random random = new Random();
+            int random_number = random.nextInt(11);
+            System.out.println(random_number + " ");
+            try { Thread.sleep(10); } catch (Exception e) { System.out.println("err");}
+            switch (random_number) {
+                case 0:
+                    act_B4U();
+                    break;
+                case 1:
+                    act_B5U();
+                    break;
+                case 2:
+                    act_B6U();
+                    break;
+                case 3:
+                    act_B4D();
+                    break;
+                case 4:
+                    act_B5D();
+                    break;
+                case 5:
+                    act_B6D();
+                    break;
+                case 6:
+                    act_B1L();
+                    break;
+                case 7:
+                    act_B1R();
+                    break;
+                case 8:
+                    act_B2L();
+                    break;
+                case 9:
+                    act_B2R();
+                    break;
+                case 10:
+                    act_B3L();
+                    break;
+                case 11:
+                    act_B3R();
+                    break;
+                default:
+                    System.out.print("error?");
+            }
 
+            if (matrix[0][0] == matrix[0][1] && matrix[0][1] == matrix[0][2] &&
+                matrix[1][0] == matrix[1][1] && matrix[1][1] == matrix[1][2] &&
+                matrix[2][0] == matrix[2][1] && matrix[2][1] == matrix[2][2] ||
+                matrix[0][0] == matrix[1][0] && matrix[1][0] == matrix[2][0] &&
+                matrix[0][1] == matrix[1][1] && matrix[1][1] == matrix[2][1] &&
+                matrix[0][2] == matrix[1][2] && matrix[1][2] == matrix[2][2] ) {
 
-    void auto_roll() throws InterruptedException {
-        if (auto_rolling == true) {
-            while (true) {
-                if (auto_rolling == false) { break; }
-                Random random = new Random();
-                int random_number = random.nextInt(11);
-                System.out.println(random_number + " ");
-                Thread.sleep(200);
-                switch (random_number) {
-                    case 0:
-                        act_B4U();
-                        break;
-                    case 1:
-                        act_B5U();
-                        break;
-                    case 2:
-                        act_B6U();
-                        break;
-                    case 3:
-                        act_B4D();
-                        break;
-                    case 4:
-                        act_B5D();
-                        break;
-                    case 5:
-                        act_B6D();
-                        break;
-                    case 6:
-                        act_B1L();
-                        break;
-                    case 7:
-                        act_B1R();
-                        break;
-                    case 8:
-                        act_B2L();
-                        break;
-                    case 9:
-                        act_B2R();
-                        break;
-                    case 10:
-                        act_B3L();
-                        break;
-                    case 11:
-                        act_B3R();
-                        break;
-                    default:
-                        System.out.print("error?");
-                }
+                auto_rolling = false;
+                try { Thread.sleep(100); } catch (Exception e) {}
+                labelCounter.setText(Integer.toString(stepCounter));
+                messageCounter.setText("Всё!");
             }
         }
     }
+
+    void setRandom() {
+
+        stepCounter = 0;
+        labelCounter.setText(Integer.toString(stepCounter));
+
+        /*
+        int randomColorIndex;
+        int redCounter = 0;
+        int yellowCounter = 0;
+        int blueCounter = 0;
+
+        for (int i = 0; i < buttonList.length; i++) {
+
+                randomColorIndex = random.nextInt(3);
+                System.out.println("randomColorIndex:: " + randomColorIndex + "");
+
+                if (randomColorIndex == 0) { redCounter++; }
+                if (randomColorIndex == 1) { yellowCounter++;}
+                if (randomColorIndex == 2) { blueCounter++; }
+
+                System.out.print(" i #" + i + " | ");
+                System.out.print("redCounter: " + redCounter + " | ");
+                System.out.print("yellowCounter: " + yellowCounter + " | ");
+                System.out.print("blueCounter: " + blueCounter + " | \n\n");
+
+                buttonList[i].setBackground(colorList[randomColorIndex]);
+
+            }
+            System.out.println();
+
+         */
+        }
 
     void actions() throws InterruptedException{
         B4U.addActionListener(e -> { act_B4U(); });
@@ -449,14 +559,24 @@ class application {
         B2R.addActionListener(e -> { act_B2R(); });
         B3L.addActionListener(e -> { act_B3L(); });
         B3R.addActionListener(e -> { act_B3R(); });
+        AUTO_START.addActionListener(e -> { auto_roll(); });
+        SET_RANDOM.addActionListener(e -> { setRandom(); });
     }
 
-    void auto_actions() throws InterruptedException {
-        while (true) {
-            auto_roll();
+    void randNumExp() {
+        while (auto_rolling == true) {
+            stepCounter++;
+            Random random = new Random();
+            int random_number = random.nextInt(11);
+            System.out.println(random_number + " ");
+            try { Thread.sleep(20); } catch (Exception e) { System.out.println("err");}
+            switch (random_number) {
+                case 0:
+                    act_B4U();
+                    break;
+            }
         }
     }
-
 }
 
 public class chroniconCrystals2 {
@@ -465,6 +585,15 @@ public class chroniconCrystals2 {
         application.window();
         application.actions();
         application.colors();
-        application.auto_actions();
+
+        application.messageCounter.setText("Авторешение через 3");
+        try { Thread.sleep(1500); } catch (Exception e) {}
+        application.messageCounter.setText("Авторешение через 2");
+        try { Thread.sleep(1500); } catch (Exception e) {}
+        application.messageCounter.setText("Авторешение через 1");
+        try { Thread.sleep(1500); } catch (Exception e) {}
+
+        application.auto_roll();
+
     }
 }
