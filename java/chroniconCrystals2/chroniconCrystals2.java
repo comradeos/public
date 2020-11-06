@@ -113,6 +113,15 @@ class application {
                 default:
             }
         }
+
+        Color [][] savedRandomMatrix = {
+                {B00.getBackground(), B01.getBackground(), B02.getBackground()},
+                {B10.getBackground(), B11.getBackground(), B12.getBackground()},
+                {B20.getBackground(), B21.getBackground(), B22.getBackground()}
+        };
+
+        matrix = savedRandomMatrix;
+
         messageCounter.setText("Randomized!");
     }
 
@@ -498,7 +507,8 @@ class application {
             stepCounter++;
             Random random = new Random();
             int random_number = random.nextInt(11);
-            System.out.println(random_number + " ");
+            System.out.print(random_number + " ");
+            if (stepCounter % 17 == 0) { System.out.println(); }
             try { Thread.sleep(10); } catch (Exception e) { System.out.println("err");}
             switch (random_number) {
                 case 0:
