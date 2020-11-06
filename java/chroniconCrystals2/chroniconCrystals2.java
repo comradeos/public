@@ -51,6 +51,8 @@ class application {
 
     JLabel messageCounter = new JLabel();
 
+    JTextArea textArea = new JTextArea(7,23);
+
     // цвет
     Color red = new Color(255, 118, 118);
     Color yellow = new Color(255, 216, 127);
@@ -337,7 +339,16 @@ class application {
         layout.putConstraint(SpringLayout.WEST, messageCounter, 10, SpringLayout.WEST, container);
         layout.putConstraint(SpringLayout.NORTH, messageCounter, 280, SpringLayout.NORTH, container);
 
-        //messageCounter
+        textArea.setText("\n  Ну тут типа логи будут писаться когда то...");
+        //textArea.setFont(font);
+        textArea.setSize(5,10);
+        //textArea.setBorder(BorderFactory.createCompoundBorder());
+        textArea.setLineWrap(true);
+        container.add(textArea);
+        layout.putConstraint(SpringLayout.WEST, textArea, 8, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, textArea, 340, SpringLayout.NORTH, container);
+
+        //textArea
 
     }
 
@@ -502,6 +513,13 @@ class application {
 
     int stepCounter = 0;
     void auto_roll() {
+
+//        for (int i = 4; i >= 0; i--){
+//            try { Thread.sleep(2000); } catch (Exception e) { /*error*/ }
+//            messageCounter.setText("Bot runs in " + i);
+//        }
+
+        messageCounter.setText(null);
         auto_rolling = true;
         while (auto_rolling == true) {
             stepCounter++;
@@ -557,11 +575,9 @@ class application {
                 matrix[0][0] == matrix[1][0] && matrix[1][0] == matrix[2][0] &&
                 matrix[0][1] == matrix[1][1] && matrix[1][1] == matrix[2][1] &&
                 matrix[0][2] == matrix[1][2] && matrix[1][2] == matrix[2][2] ) {
-
                 auto_rolling = false;
-                try { Thread.sleep(100); } catch (Exception e) {}
-                labelCounter.setText(Integer.toString(stepCounter));
                 messageCounter.setText("Solved!");
+                textArea.setText("\n  Ну худо-бедно порешалось...");
             }
         }
     }
@@ -636,6 +652,7 @@ public class chroniconCrystals2 {
     public static void main(String[] args) throws InterruptedException {
         application application = new application();
         application.window();
+        application.generateMatrix();
         application.actions();
         //application.colors();
         //application.auto_roll();
