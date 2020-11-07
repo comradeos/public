@@ -46,6 +46,8 @@ class application {
     JButton AUTO_START = new JButton();
     JButton AUTO_STOP = new JButton();
 
+    JButton RESET_PREVIOUS_RANDOM = new JButton();
+
     JLabel labelCounter = new JLabel();
     JLabel labelSteps = new JLabel();
 
@@ -62,14 +64,8 @@ class application {
     Font font = new Font("Serif", Font.BOLD, 22);
     Font font2 = new Font("Serif", Font.PLAIN, 14);
 
-    Color [] colorList = {red, yellow, blue};
-    JButton [] buttonList = {B00, B01, B02, B10, B11, B12, B20, B21, B22};
-
-    Color [][] matrix = {
-            {red,yellow,blue},
-            {yellow,blue,red},
-            {blue,yellow,red}
-    };
+    Color [][] matrix = {{red,red,red}, {yellow,yellow,yellow}, {blue,blue,blue}};
+    Color [][] savedRandomMatrix;
 
     String log = "";
 
@@ -119,13 +115,22 @@ class application {
             }
         }
 
-        Color [][] savedRandomMatrix = {
+        savedRandomMatrix = new Color[][] {
                 {B00.getBackground(), B01.getBackground(), B02.getBackground()},
                 {B10.getBackground(), B11.getBackground(), B12.getBackground()},
-                {B20.getBackground(), B21.getBackground(), B22.getBackground()}
-        };
+                {B20.getBackground(), B21.getBackground(), B22.getBackground()}};
 
-        matrix = savedRandomMatrix;
+        matrix[0][0] = savedRandomMatrix[0][0];
+        matrix[0][1] = savedRandomMatrix[0][1];
+        matrix[0][2] = savedRandomMatrix[0][2];
+
+        matrix[1][0] = savedRandomMatrix[1][0];
+        matrix[1][1] = savedRandomMatrix[1][1];
+        matrix[1][2] = savedRandomMatrix[1][2];
+
+        matrix[2][0] = savedRandomMatrix[2][0];
+        matrix[2][1] = savedRandomMatrix[2][1];
+        matrix[2][2] = savedRandomMatrix[2][2];
 
         messageCounter.setText("Перемешано!");
         textArea.setText("Тут будут записаны ходы. ");
@@ -309,7 +314,7 @@ class application {
         AUTO_START.setPreferredSize(new Dimension(50, 50));
         container.add(AUTO_START);
         layout.putConstraint(SpringLayout.WEST, AUTO_START, 10, SpringLayout.WEST, container);
-        layout.putConstraint(SpringLayout.NORTH, AUTO_START, 210, SpringLayout.NORTH, container);
+        layout.putConstraint(SpringLayout.NORTH, AUTO_START, 10, SpringLayout.NORTH, container);
 
         AUTO_STOP.setText("ST");
         AUTO_STOP.setFocusPainted(false);
@@ -324,6 +329,18 @@ class application {
         container.add(SET_RANDOM);
         layout.putConstraint(SpringLayout.WEST, SET_RANDOM, 210, SpringLayout.WEST, container);
         layout.putConstraint(SpringLayout.NORTH, SET_RANDOM, 10, SpringLayout.NORTH, container);
+
+
+        RESET_PREVIOUS_RANDOM.setText("RS");
+        RESET_PREVIOUS_RANDOM.setFocusPainted(false);
+        RESET_PREVIOUS_RANDOM.setPreferredSize(new Dimension(50, 50));
+        container.add(RESET_PREVIOUS_RANDOM);
+        layout.putConstraint(SpringLayout.WEST, RESET_PREVIOUS_RANDOM, 210, SpringLayout.WEST, container);
+        layout.putConstraint(SpringLayout.NORTH, RESET_PREVIOUS_RANDOM, 210, SpringLayout.NORTH, container);
+
+
+
+
 
         labelCounter.setText("0");
         labelCounter.setFont(font);
@@ -542,14 +559,16 @@ class application {
     void auto_roll() {
         messageCounter.setText(null);
         auto_rolling = true;
+        stepCounter = 0;
+        log = "";
 
         while (auto_rolling == true) {
-            stepCounter++;
+
             Random random = new Random();
             int random_number = random.nextInt(11);
             System.out.print(random_number + " ");
             if (stepCounter % 17 == 0) { System.out.println(); }
-            try { Thread.sleep(1); } catch (Exception e) { System.out.println("err");}
+            // try { Thread.sleep(1); } catch (Exception e) { System.out.println("err");}
             switch (random_number) {
                 case 0:
                     act_B4U();
@@ -597,18 +616,42 @@ class application {
                 matrix[0][0] == matrix[1][0] && matrix[1][0] == matrix[2][0] &&
                 matrix[0][1] == matrix[1][1] && matrix[1][1] == matrix[2][1] &&
                 matrix[0][2] == matrix[1][2] && matrix[1][2] == matrix[2][2] ) {
+
+                //if (stepCounter <= 10) { auto_rolling = false; } else { resetPreviousRandom(); }
                 auto_rolling = false;
                 messageCounter.setText("Порешано!");
                 String st;
+
                 if (stepCounter % 10 == 1) { st = "шаг"; } else
                 if (stepCounter % 10 == 2 ||
                     stepCounter % 10 == 3 ||
                     stepCounter % 10 == 4 ) { st = "шага"; } else { st = "шагов"; }
-                log = "";
-                textArea.setText("Ну худо-бедно порешалось... \nЗа " + stepCounter + " " + st + ".");
+                textArea.setText("Ну худо-бедно порешалось... \nЗа " + stepCounter  + " " + st + ":\n\n" + log);
             }
         }
     }
+
+
+    void resetPreviousRandom() {
+
+        //RESET_PREVIOUS_RANDOM.setBackground(savedRandomMatrix[0][0]);
+
+        matrix[0][0] = savedRandomMatrix[0][0];
+        matrix[0][1] = savedRandomMatrix[0][1];
+        matrix[0][2] = savedRandomMatrix[0][2];
+
+        matrix[1][0] = savedRandomMatrix[1][0];
+        matrix[1][1] = savedRandomMatrix[1][1];
+        matrix[1][2] = savedRandomMatrix[1][2];
+
+        matrix[2][0] = savedRandomMatrix[2][0];
+        matrix[2][1] = savedRandomMatrix[2][1];
+        matrix[2][2] = savedRandomMatrix[2][2];
+
+        update();
+
+    }
+
 
     void actions() {
         B4U.addActionListener(e -> act_B4U());
@@ -625,6 +668,8 @@ class application {
         B3R.addActionListener(e -> act_B3R());
         AUTO_START.addActionListener(e -> auto_roll());
         SET_RANDOM.addActionListener(e -> { generateMatrix(); log = ""; });
+        RESET_PREVIOUS_RANDOM.addActionListener(e -> resetPreviousRandom());
+
     }
 
     void randNumExp() {
