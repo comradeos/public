@@ -39,18 +39,13 @@ class application {
     JButton B21 = new JButton();
     JButton B22 = new JButton();
 
-    JButton RND = new JButton();
-    JButton TMP = new JButton();
-
     JButton SET_RANDOM = new JButton();
     JButton AUTO_START = new JButton();
     JButton AUTO_STOP = new JButton();
-
     JButton RESET_PREVIOUS_RANDOM = new JButton();
 
     JLabel labelCounter = new JLabel();
     JLabel labelSteps = new JLabel();
-
     JLabel messageCounter = new JLabel();
 
     JTextArea textArea = new JTextArea(7,21);
@@ -67,7 +62,7 @@ class application {
     Color [][] matrix = {{red,red,red}, {yellow,yellow,yellow}, {blue,blue,blue}};
     Color [][] savedRandomMatrix;
 
-    String log = "";
+    String log;
 
     void generateMatrix() {
         for (int i = 0; i < random.nextInt(100); i++ ) {
@@ -118,7 +113,8 @@ class application {
         savedRandomMatrix = new Color[][] {
                 {B00.getBackground(), B01.getBackground(), B02.getBackground()},
                 {B10.getBackground(), B11.getBackground(), B12.getBackground()},
-                {B20.getBackground(), B21.getBackground(), B22.getBackground()}};
+                {B20.getBackground(), B21.getBackground(), B22.getBackground()}
+        };
 
         matrix[0][0] = savedRandomMatrix[0][0];
         matrix[0][1] = savedRandomMatrix[0][1];
@@ -134,6 +130,7 @@ class application {
 
         messageCounter.setText("Перемешано!");
         textArea.setText("Тут будут записаны ходы. ");
+        log = "";
     }
 
     boolean auto_rolling = true;
@@ -141,7 +138,6 @@ class application {
     void update() {
 
         // верхняя линия
-
         B4U.setText("4U");
         B4U.setFocusPainted(false);
         B4U.setPreferredSize(new Dimension(50, 50));
@@ -150,7 +146,6 @@ class application {
         layout.putConstraint(SpringLayout.NORTH, B4U, 10, SpringLayout.NORTH, container);
 
         //add_button("name", "4U",50,50,50,0);
-
         B5U.setText("5U");
         B5U.setFocusPainted(false);
         B5U.setPreferredSize(new Dimension(50, 50));
@@ -693,7 +688,6 @@ public class chroniconCrystals2 {
         application application = new application();
         application.window();
         application.generateMatrix();
-        application.log = "";
         application.actions();
         //application.colors();
         //application.auto_roll();
