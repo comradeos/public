@@ -372,7 +372,7 @@ class application {
 
     void window() {
         frame.setVisible(true);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setBounds(0,0,286,500);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -644,6 +644,9 @@ class application {
         matrix[2][2] = savedRandomMatrix[2][2];
 
         update();
+
+        messageCounter.setText("Восстановлено!");
+        textArea.setText("");
 
     }
 
