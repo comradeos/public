@@ -100,7 +100,7 @@ public class RouletteWheel {
     }
 
     public static void main (String[]args) {
-        rouletteWheel app = new rouletteWheel();
+        RouletteWheel app = new RouletteWheel();
         app.window();
         app.actions();
     }
