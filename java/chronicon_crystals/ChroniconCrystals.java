@@ -686,7 +686,7 @@ class application {
     }
 }
 
-public class chroniconCrystals2 {
+public class ChroniconCrystals {
     public static void main(String[] args) throws InterruptedException {
         application application = new application();
         application.window();
