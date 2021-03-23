@@ -13,4 +13,4 @@
 
 > 5. перезапускаем сервер
 
->6. пример файла: [index.py](https://github.com/comradeos/public/blob/master/python/web_python/index.pyy)
+>6. пример файла: [index.py](https://github.com/comradeos/public/blob/master/python/web_python/index.py)
