@@ -25,13 +25,13 @@ void NumsSeq(int a) {
     std::cout << resultCol << " ";
     std::cout << "\n";
 
-    for (int i = 0; i < a; i++) {
+    for (int i = 1; i < a; i++) {
 
         resultCol = resultCol + firstStep;
-        std::cout << resultCol;
+        std::cout << resultCol << " ";
         resultRow = resultCol;
 
-        for (int j = 0; j < i + 1; j++) {
+        for (int j = 1; j < i + 1; j++) {
 
             resultRow = resultRow + 2;
             std::cout << resultRow << " ";
@@ -53,7 +53,7 @@ int main() {
     std::cout << "песочница c++\n";
     // test();
 
-    NumsSeq(10);
+    NumsSeq(14);
 
 }
 
