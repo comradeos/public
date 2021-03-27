@@ -15,32 +15,32 @@ void test() {
 
 }
 
-void NumsSeq(int a) {
+void num_sequence(int a) {
 
-    int resultCol = 1;
-    int resultRow = 0;
-    int firstStep = 3;
-    int secondStep = 2;
+    int result_col = 1;
+    int result_row = 0;
+    int first_step = 3;
+    int second_step = 2;
 
-    std::cout << resultCol << " ";
+    std::cout << result_col << " ";
     std::cout << "\n";
 
     for (int i = 1; i < a; i++) {
 
-        resultCol = resultCol + firstStep;
-        std::cout << resultCol << " ";
-        resultRow = resultCol;
+        result_col = result_col + first_step;
+        std::cout << result_col << " ";
+        result_row = result_col;
 
         for (int j = 1; j < i + 1; j++) {
 
-            resultRow = resultRow + 2;
-            std::cout << resultRow << " ";
+            result_row = result_row + 2;
+            std::cout << result_row << " ";
 
         }
 
         std::cout << "\n";
-        firstStep = firstStep + secondStep;
-        secondStep++;
+        first_step = first_step + second_step;
+        second_step++;
     }
 }
 
@@ -53,7 +53,7 @@ int main() {
     std::cout << "песочница c++\n";
     // test();
 
-    NumsSeq(14);
+    num_sequence(7);
 
 }
 
