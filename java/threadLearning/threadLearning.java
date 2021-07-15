@@ -17,7 +17,7 @@ class JThread extends Thread {
     }
 }
 
-public class ThreadLearning {
+public class threadLearning {
 
     public static void main(String[] args) {
         System.out.println("Main thread started...");
