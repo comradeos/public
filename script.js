@@ -86,7 +86,7 @@ for (let value in data["table"]["rows"]) {
         // <b> ${data["table"]["rows"][0]["c"][0]["v"]} </b>: 
         // ${data["table"]["rows"][value]["c"][0]["v"]} <br>
         let linkValue = data["table"]["rows"][value]["c"][0]["v"];
-        document.write(`<a href=\"/apitest2/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
+        document.write(`<a href=\"/public/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
         if (counter == 3) {
             document.write("<br>");
             counter = 0;
