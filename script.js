@@ -24,10 +24,6 @@ function file_get_contents(url) {
     return request.responseText;
 }
 
-function print(value) {
-    return document.write(value);
-}
-
 function $_GET(param) {
     var vars = {};
     window.location.href.replace(location.hash, '').replace(
@@ -44,7 +40,15 @@ function $_GET(param) {
 }
 
 let box = $_GET('box');
-document.write("<h1>Содержимое коробки №" + box + "</h1>");
+
+document.write("<center>");
+
+
+if (box) {
+    document.write("<h1>Содержимое коробки №" + box + "</h1>");
+} else {
+    document.write("<h1>Выберите коробку</h1>");
+}
 
 let string = file_get_contents("https://docs.google.com/spreadsheets/d/1QZ1Wng2Knh9DWmFRf4svurDsbh6b8jCnEA3EDyZggqQ/gviz/tq?tqx=out:json&tq&gid=0");
 
@@ -86,7 +90,8 @@ for (let value in data["table"]["rows"]) {
         // <b> ${data["table"]["rows"][0]["c"][0]["v"]} </b>: 
         // ${data["table"]["rows"][value]["c"][0]["v"]} <br>
         let linkValue = data["table"]["rows"][value]["c"][0]["v"];
-        document.write(`<a href=\"/public/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
+        // document.write(`<a href=\"/apitest2/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
+        document.write(`<a href  =\"/public/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
         if (counter == 3) {
             document.write("<br>");
             counter = 0;
@@ -95,3 +100,4 @@ for (let value in data["table"]["rows"]) {
 
 }
 
+document.write("</center>");
