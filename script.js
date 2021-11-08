@@ -81,23 +81,21 @@ for (let value in data["table"]["rows"]) {
 
 document.write("<h2>Доступные коробки:</h2>");
 counter = 0;
+let boxes = [];
 
 for (let value in data["table"]["rows"]) {
-    if (value == 0) {
-        continue;
-    } else {
-        counter++;
-        // <b> ${data["table"]["rows"][0]["c"][0]["v"]} </b>: 
-        // ${data["table"]["rows"][value]["c"][0]["v"]} <br>
-        let linkValue = data["table"]["rows"][value]["c"][0]["v"];
-        // document.write(`<a href=\"/apitest2/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
-        document.write(`<a href  =\"/public/?box=${linkValue}\">Коробка №${linkValue}</a>, `);
-        if (counter == 3) {
-            document.write("<br>");
-            counter = 0;
-        }
-    }
+    let linkValue = data["table"]["rows"][value]["c"][0]["v"];
+    boxes.push(linkValue);
+}
 
+let uniqueBoxes = [...new Set(boxes)];
+
+for (let value in uniqueBoxes) {
+    if (value == 0) { continue; }
+    counter++;
+    // document.write(`<a href=\"/apitest2/?box=${uniqueBoxes[value]}\">Коробка №${uniqueBoxes[value]}</a>&nbsp&nbsp`);
+    document.write(`<a href=\"/public/?box=${uniqueBoxes[value]}\">Коробка №${uniqueBoxes[value]}</a>&nbsp&nbsp`);
+    if (counter == 3) { document.write("<br>"); counter = 0; }
 }
 
 document.write("</center>");
