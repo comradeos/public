@@ -2,3 +2,5 @@
 ### I am a self-motivated IT specialist. 
 ### Communicative, hardworking, tending to learn new stuff everyday. 
 ### And this is my public page.
+
+[An Internal Link](/guides/content/editing-an-existing-page)
