@@ -13,131 +13,7 @@
 <body>
 
   <style>
-    @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-    html,
-    body {
-      overflow: hidden;
-    }
-
-    .background {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      overflow: hidden;
-      will-change: transform;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      height: 130vh;
-      position: fixed;
-      width: 100%;
-      transform: translateY(30vh);
-      transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
-    }
-
-    .background:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    .background:first-child {
-      background-image: url(https://scontent.fiev6-1.fna.fbcdn.net/v/t31.18172-8/22499083_1958246951110001_8113571802793332331_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=l7g1RQlL9VgAX9AAXq4&_nc_ht=scontent.fiev6-1.fna&oh=00_AT8wkTaBeboICkK4bVwtdycP6dyEqYw1jIoxA8MkI4-3bw&oe=62B60AEC);
-      transform: translateY(-15vh);
-    }
-
-    .background:first-child .content-wrapper {
-      transform: translateY(15vh);
-    }
-
-    .background:nth-child(2) {
-      background-image: url(https://scontent.fiev6-1.fna.fbcdn.net/v/t31.18172-8/22712226_1959860557615307_3011186501440235993_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=DP_gxcsDkhoAX8EUpQs&_nc_ht=scontent.fiev6-1.fna&oh=00_AT8_gjYqa5Qg8aBYKWRQpJS2g61xy07Q73oOOcjz33u4Og&oe=62B872A6);
-    }
-
-
-    .background:nth-child(1) {
-      z-index: 3;
-    }
-
-    .background:nth-child(2) {
-      z-index: 2;
-    }
-
-    .background:nth-child(3) {
-      z-index: 1;
-    }
-
-    .content-wrapper {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      flex-flow: column nowrap;
-      color: #fff;
-      font-family: Montserrat;
-      text-transform: uppercase;
-      transform: translateY(40vh);
-      will-change: transform;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
-    }
-
-    .content-title {
-      font-size: 7vh;
-      line-height: 1.4;
-    }
-
-    a,
-    a:visited {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .content-subtitle {
-      font-size: 2vh;
-      line-height: 1.4;
-      width: 50%;
-      margin: 25px auto 0 auto;
-    }
-
-    .background.up-scroll {
-      transform: translate3d(0, -15vh, 0);
-    }
-
-    .background.up-scroll .content-wrapper {
-      transform: translateY(15vh);
-    }
-
-    .background.up-scroll+.background {
-      transform: translate3d(0, 30vh, 0);
-    }
-
-    .background.up-scroll+.background .content-wrapper {
-      transform: translateY(30vh);
-    }
-
-    .background.down-scroll {
-      transform: translate3d(0, -130vh, 0);
-    }
-
-    .background.down-scroll .content-wrapper {
-      transform: translateY(40vh);
-    }
-
-    .background.down-scroll+.background:not(.down-scroll) {
-      transform: translate3d(0, -15vh, 0);
-    }
-
-    .background.down-scroll+.background:not(.down-scroll) .content-wrapper {
-      transform: translateY(15vh);
-    }
   </style>
 
   <div class="container">
@@ -148,12 +24,26 @@
           new stuff everyday. And this is my public page.</p>
       </div>
     </section>
+
     <section class="background">
       <div class="content-wrapper">
-        <a href="mailto:osmnbx@gmail.com">
-          <p class="content-title">osmnbx@gmail.com</p>
-        </a>
+        <p class="content-title">Contact me:</p>
+        <ul class="contact">
+          <li><a href="mailto:osmnbx@gmail.com" target="_blank">E-mail</a></li>
+          <li><a href="https://github.com/comradeos" target="_blank">github</a></li>
+          <li><a href="https://www.linkedin.com/in/iaroslav-os/" target="_blank">linkedin</a></li>
+          <li><a href="https://t.me/iaroslav_os" target="_blank">telegram</a></li>
+          <li><a href="https://www.facebook.com/iaroslav.os/" target="_blank">facebook</a></li>
+          <li><a href="https://twitter.com/comradeos" target="_blank">twitter</a></li>
+        </ul>
         <!-- <a href="https://www.facebook.com/iaroslav.os/"><p class="content-title">facebook</p></a> -->
+        <!-- <p class="content-subtitle"></p> -->
+      </div>
+    </section>
+
+    <section class="background">
+      <div class="content-wrapper">
+        <p class="content-title">Have a nice day!</p>
         <!-- <p class="content-subtitle"></p> -->
       </div>
     </section>
@@ -161,63 +51,7 @@
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
   <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
-  <script>
-    var ticking = false;
-    var isFirefox = (/Firefox/i.test(navigator.userAgent));
-    var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(navigator.userAgent));
-    var scrollSensitivitySetting = 30;
-    var slideDurationSetting = 600;
-    var currentSlideNumber = 0;
-    var totalSlideNumber = $(".background").length;
-
-    function parallaxScroll(evt) {
-      if (isFirefox) {
-        delta = evt.detail * (-120);
-      } else if (isIe) {
-        delta = -evt.deltaY;
-      } else {
-        delta = evt.wheelDelta;
-      }
-
-      if (ticking != true) {
-        if (delta <= -scrollSensitivitySetting) {
-          ticking = true;
-          if (currentSlideNumber !== totalSlideNumber - 1) {
-            currentSlideNumber++;
-            nextItem();
-          }
-          slideDurationTimeout(slideDurationSetting);
-        }
-        if (delta >= scrollSensitivitySetting) {
-          ticking = true;
-          if (currentSlideNumber !== 0) {
-            currentSlideNumber--;
-          }
-          previousItem();
-          slideDurationTimeout(slideDurationSetting);
-        }
-      }
-    }
-
-    function slideDurationTimeout(slideDuration) {
-      setTimeout(function () {
-        ticking = false;
-      }, slideDuration);
-    }
-
-    var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
-    window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
-
-    function nextItem() {
-      var $previousSlide = $(".background").eq(currentSlideNumber - 1);
-      $previousSlide.removeClass("up-scroll").addClass("down-scroll");
-    }
-
-    function previousItem() {
-      var $currentSlide = $(".background").eq(currentSlideNumber);
-      $currentSlide.removeClass("down-scroll").addClass("up-scroll");
-    }
-  </script>
+  <script src='./general.js'></script>
 
 </body>
 
