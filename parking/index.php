@@ -9,7 +9,19 @@
 </head>
 
 <body>
-
+    <div>
+        <form action="" method="POST">
+            <button name="top1">top1</button><br><br>
+            <button name="bottom1">bottom1</button><br>
+            <button name="bottom2">bottom2</button>
+        </form>
+        <hr>
+        <form action="" method="POST">
+            <input type="text" name="param1"><br>
+            <input type="text" name="param2"><br>
+            <input type="submit" value="Save">
+        </form>
+    </div>
 </body>
 
 </html>
