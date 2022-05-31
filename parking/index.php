@@ -1,3 +1,23 @@
+<?php
+
+$settings_in = parse_ini_file('settings_in.ini', true);
+print_r($settings_in);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $settings_out = '';
+
+    foreach ($settings_in as $key => $value) {
+        $settings_out .= $key . "=" . $value . "\n";
+    }
+
+    $date = new DateTime();
+    $now = $date->format('Y-m-d H:i:s');
+    $settings_out .= 'updated=' . $now . "\n";
+
+    file_put_contents('settings_out.ini', $settings_out);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
