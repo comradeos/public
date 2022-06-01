@@ -30,17 +30,33 @@
         <h2>Settings:</h2>
 
         <form action="" method="POST">
-            <label>param1</label>
-            <input type="text" name="param1" value="<?php print $set_in['param1']; ?>"><br>
-            <label>param2</label>
-            <input type="text" name="param2" value="<?php print $set_in['param2']; ?>"><br>
-            <label>param3</label>
-            <input type="text" name="param3" value="<?php print $set_in['param3']; ?>"><br>
-            <label>param4</label>
-            <input type="text" name="param4" value="<?php print $set_in['param4']; ?>"><br>
-            <label>param5</label>
-            <input type="text" name="param5" value="<?php print $set_in['param5']; ?>"><br>
-            <input type="submit" value="Save">
+            <div>
+                <label>param1</label>
+                <input type="text" name="param1" value="<?php print $set_in['param1']; ?>">
+                <label>_____</label>
+            </div>
+            <div>
+                <label>param2</label>
+                <input type="text" name="param2" value="<?php print $set_in['param2']; ?>">
+                <label>_____</label>
+            </div>
+            <div>
+                <label>param3</label>
+                <input type="text" name="param3" value="<?php print $set_in['param3']; ?>">
+                <label>_____</label>
+            </div>
+            <div>
+                <label>param4</label>
+                <input type="text" name="param4" value="<?php print $set_in['param4']; ?>">
+                <label>_____</label>
+            </div>
+            <div>
+                <label>param5</label>
+                <input type="text" name="param5" value="<?php print $set_in['param5']; ?>">
+                <label>_____</label>
+            </div>
+
+            <input type="submit" class="save" value="Save">
         </form>
 
     </div>

@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // запись в файлы
     file_put_contents('set_in.ini', $new_set);
+    file_put_contents('set_out.ini', $new_set);
 }
 
 $set_in = parse_ini_file('set_in.ini', true);
