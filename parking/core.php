@@ -4,6 +4,8 @@ require_once __DIR__ . '/tools.php';
 
 // проверка метода отправки данных
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $ini = parse_ini_file('set_in.ini', true);
+
     // строка для хранения новых настроек
     $new_set = '';
     // получение данных из формы
@@ -13,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'param3' => $_POST['param3'] ?? null,
         'param4' => $_POST['param4'] ?? null,
         'param5' => $_POST['param5'] ?? null,
+        'alarm' => $ini['alarm'],
     ];
 
     // перебор массива с формы с присваиванием в строку новых настроек
@@ -32,6 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // запись в файлы
     file_put_contents('set_in.ini', $new_set);
     file_put_contents('set_out.ini', $new_set);
+}
+
+$alarm = $_GET['alarm'] ?? '';
+if ($alarm != '') {
+    echo 1111111111;
 }
 
 $set_in = parse_ini_file('set_in.ini', true);

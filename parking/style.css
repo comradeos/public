@@ -7,11 +7,13 @@
 div.container {
     width: 500px;
     margin: 0 auto;
+    padding: 35px;
     border: 1px solid black;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .space1 {
@@ -32,6 +34,28 @@ div.car-space {
     background: #f0f0f0;
 }
 
-form div input {
+form input {
     width: 70px;
+}
+
+.save {
+    margin: 15px 0 0 0;
+}
+
+.alarm {
+    position: absolute;
+    top: 105px;
+    right: 30px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid red;
+    display: inline-block;
+}
+
+table {
+    margin: 10px;
+}
+
+table tr td {
+    text-align: left;
 }
