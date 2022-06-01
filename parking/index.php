@@ -1,30 +1,5 @@
-<?php
+<?php require_once __DIR__ . '/core.php'; ?>
 
-require_once 'tools.php';
-
-$set_in = parse_ini_file('set_in.ini', true);
-// __print($set_in);
-// __print(array_keys($set_in)[0]);
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $set_out = [
-        'param1' => $_POST['param1'] ?? null,
-        'param2' => $_POST['param2'] ?? null,
-        'param3' => $_POST['param3'] ?? null,
-        'param4' => $_POST['param4'] ?? null,
-        'param5' => $_POST['param5'] ?? null,
-    ];
-
-    __print($set_out);
-
-    $date = new DateTime();
-    $now = $date->format('Y-m-d H:i:s');
-
-    file_put_contents('set_out.ini', $set_out);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,23 +12,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <h1>Parking</h1>
-    <div>
-        <form action="" method="GET">
-            <button name="top1">top1</button><br><br>
+
+    <div class="container">
+
+        <h1>Parking_v2_1_web_01</h1>
+        <h2>State:</h2>
+
+        <form method="GET">
+            <button name="top1">top1</button><br>
+            <div class="car-space">car-space</div>
             <button name="bottom1">bottom1</button><br>
             <button name="bottom2">bottom2</button>
         </form>
-        <hr>
-        <form action="" method="POST">
-            <input type="text" name="param1" value="<?php print $set_in['param1']; ?>"><br>
-            <input type="text" name="param2" value="<?php print $set_in['param2']; ?>"><br>
-            <input type="text" name="param3" value="<?php print $set_in['param3']; ?>"><br>
-            <input type="text" name="param4" value="<?php print $set_in['param4']; ?>"><br>
-            <input type="text" name="param5" value="<?php print $set_in['param5']; ?>"><br>
 
+        <div class="space1"></div>
+
+        <h2>Settings:</h2>
+
+        <form action="" method="POST">
+            <label>param1</label>
+            <input type="text" name="param1" value="<?php print $set_in['param1']; ?>"><br>
+            <label>param2</label>
+            <input type="text" name="param2" value="<?php print $set_in['param2']; ?>"><br>
+            <label>param3</label>
+            <input type="text" name="param3" value="<?php print $set_in['param3']; ?>"><br>
+            <label>param4</label>
+            <input type="text" name="param4" value="<?php print $set_in['param4']; ?>"><br>
+            <label>param5</label>
+            <input type="text" name="param5" value="<?php print $set_in['param5']; ?>"><br>
             <input type="submit" value="Save">
         </form>
+
     </div>
 </body>
 
