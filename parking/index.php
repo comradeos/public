@@ -47,31 +47,31 @@
                 <tr>
                     <td><label>param1</label></td>
                     <td><input type="text" name="param1" value="<?php print $set_in['param1']; ?>"></td>
-                    <td><label>A.</label></td>
+                    <td><label>color.</label></td>
                 </tr>
 
                 <tr>
                     <td><label>param2</label></td>
                     <td><input type="text" name="param2" value="<?php print $set_in['param2']; ?>"></td>
-                    <td><label>mol.</label></td>
+                    <td><label>color.</label></td>
                 </tr>
 
                 <tr>
                     <td><label>param3</label></td>
                     <td><input type="text" name="param3" value="<?php print $set_in['param3']; ?>"></td>
-                    <td><label>cd.</label></td>
+                    <td><label>color.</label></td>
                 </tr>
 
                 <tr>
                     <td><label>param4</label></td>
                     <td><input type="text" name="param4" value="<?php print $set_in['param4']; ?>"></td>
-                    <td><label>sec.</label></td>
+                    <td><label>unit.</label></td>
                 </tr>
 
                 <tr>
                     <td><label>param5</label></td>
                     <td><input type="text" name="param5" value="<?php print $set_in['param5']; ?>"></td>
-                    <td><label>kg.</label></td>
+                    <td><label>unit.</label></td>
                 </tr>
 
             </table>
