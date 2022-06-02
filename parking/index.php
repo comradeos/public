@@ -25,10 +25,10 @@
         <h2>State:</h2>
 
         <form method="GET">
-            <button name="top1">top1</button><br>
+            <button name="top1" class="<?php print $set_in['param1']; ?>">top1 (param1)</button><br>
             <div class="car-space">car-space</div>
-            <button name="bottom1">bottom1</button><br>
-            <button name="bottom2">bottom2</button>
+            <button name="bottom1" class="<?php print $set_in['param2']; ?>">bottom1 (param2)</button><br>
+            <button name="bottom2" class="<?php print $set_in['param3']; ?>">bottom2 (param3)</button>
         </form>
 
         <div class="space1"></div>

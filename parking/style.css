@@ -59,3 +59,15 @@ table {
 table tr td {
     text-align: left;
 }
+
+.red {
+    background: red;
+}
+
+.green {
+    background: green;
+}
+
+.blue {
+    background: blue;
+}
