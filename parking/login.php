@@ -33,15 +33,17 @@ function login()
 </head>
 
 <body>
-    <center>
-        <h1>Login</h1>
-        <? login(); ?>
-        <form method="post">
-            <div><input type="text" name="login" placeholder="Login"></div>
-            <div><input type="password" name="password" placeholder="Password"></div>
-            <div><input type="submit" value="Submit"></div>
-        </form>
-    </center>
+
+    <h1>Login</h1>
+
+    <?php login(); ?>
+
+    <form method="post">
+        <div><input type="text" name="login" placeholder="Login"></div>
+        <div><input type="password" name="password" placeholder="Password"></div>
+        <div><input type="submit" value="Submit"></div>
+    </form>
+
 </body>
 
 </html>
