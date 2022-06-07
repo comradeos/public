@@ -3,3 +3,92 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.main {
+    width: 300px;
+    margin: auto;
+}
+
+.welcome {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main form {
+    position: relative;
+}
+
+.alarm {
+    width: 91px;
+    height: 71px;
+    position: absolute;
+    right: -130px;
+    top: 44px;
+    background-image: url(img/alarm.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90px;
+    background-color: #0000;
+}
+
+.alarm_on {
+    background-image: url(img/alarm_on.svg);
+}
+
+.alarm_off {
+    background-image: url(img/alarm_off.svg);
+}
+
+button,
+table,
+.car_area {
+    margin: 10px 0 0 0;
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+}
+
+.off {
+    background: red;
+}
+
+.on {
+    background: green;
+}
+
+
+.car_area {
+    height: 450px;
+    background-color: #e7e7e7;
+}
+
+.car_model {
+    height: 416px;
+    background-image: url(img/car.svg);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: center;
+    animation: car_animation 3s infinite;
+    animation-timing-function: linear;
+
+}
+
+.car_moving {
+    position: relative;
+}
+
+
+@keyframes car_animation {
+    from {
+        top: 0px;
+    }
+
+    to {
+        top: -600px;
+    }
+}
