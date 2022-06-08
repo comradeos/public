@@ -1,16 +1,7 @@
 <?php
 
 require_once __DIR__ . '/tools.php';
-
-$ini = parse_ini_file('set_in.ini', true);
-
-/* -> css classes */
-$cam1 = $ini['camera_1'] == 1 ? 'on' : 'off';
-$cam2 = $ini['camera_2'] == 1 ? 'on' : 'off';
-$gate = $ini['gate'] == 1 ? 'on' : 'off';
-$car_moving = $ini['gate'] == 1 ? 'car_moving' : '';
-$alarm = $ini['alarm'] == 1 ? 'alarm_on' : 'alarm_off';
-/* <- css classes */
+require_once __DIR__ . '/classes.php';
 
 // __print($ini);
 
@@ -24,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'camera_1' => $ini['camera_1'],
         'camera_2' => $ini['camera_2'],
         'gate' => $ini['gate'],
+        'car' => $ini['car'],
         'mod_date' => $date->format('Y-m-d H:i:s'),
     ];
 
