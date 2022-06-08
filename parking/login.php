@@ -11,7 +11,7 @@ function login()
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $login = $_POST['login'];
         $password = $_POST['password'];
-        if ($login == '1' && $password == '1') {
+        if ($login == 'admin' && $password == '1') {
             $_SESSION['user'] = $login;
             header('Location: index.php');
         } else {

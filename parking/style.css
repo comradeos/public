@@ -10,19 +10,16 @@
     font-family: "Roboto";
 }
 
-body {
-    height: 100vh;
-}
-
 .main {
     width: 300px;
     margin: auto;
 }
 
 .welcome {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
+    margin: 20px 0;
 }
 
 .main form {
@@ -77,19 +74,19 @@ button {
 }
 
 .off {
-    background: #ff5151;
+    background: #ffcece;
 }
 
 .off:hover {
-    background: #e24848;
+    background: #ff9f9f;
 }
 
 .on {
-    background: #4caf50;
+    background: #caffcc;
 }
 
 .on:hover {
-    background: #3e8d40;
+    background: #9fffa2;
 }
 
 
@@ -99,7 +96,7 @@ button {
 }
 
 .car_model {
-    height: 416px;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: 200px;
     background-position: center;
@@ -142,7 +139,20 @@ table label {
 }
 
 table input {
-    width: 100px;
+    width: 60px;
     font-size: 20px;
     margin: 0px 10px 0px 0px;
+    border: none;
+    border-bottom: 1px solid #dfdfdf;
+    text-align: center;
+    padding: 0 0 0 10px;
+}
+
+a,
+a:visited {
+    color: #59abff;
+}
+
+a:hover {
+    color: #2c8beb;
 }
