@@ -23,7 +23,7 @@ require_once __DIR__ . '/core.php';
             <div><button class="<?php echo $cam1; ?>" name="camera_1">camera #1</button></div>
             <div><button class="alarm <?php echo $alarm; ?>" name="alarm">alarm (on/off)</button></div>
             <div class="car_area">car area
-                <div class="car_model <?php echo $car_moving; ?>">car model</div>
+                <div class="car_model <?php echo "$car $car_moving"; ?>">car model</div>
             </div>
             <div><button class="<?php echo $gate; ?>" name="gate">gate</button></div>
             <div><button class="<?php echo $cam2; ?>" name="camera_2">camera #2</button></div>
