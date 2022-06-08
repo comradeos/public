@@ -71,13 +71,19 @@ button {
 
 .car_model {
     height: 416px;
-    background-image: url(img/car.svg);
     background-repeat: no-repeat;
     background-size: 200px;
     background-position: center;
     animation: car_animation 3s infinite;
     animation-timing-function: linear;
+}
 
+.car_in {
+    background-image: url(img/car.svg);
+}
+
+.car_out {
+    background-image: none;
 }
 
 .car_moving {
