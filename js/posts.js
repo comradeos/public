@@ -1,9 +1,9 @@
 params = new URLSearchParams(window.location.search)
-post = params.get('post') ? params.get('post') : 1;
-post = parseInt(post);
-limit = post + 10;
+index = params.get('index') ? params.get('index') : 1;
+index = parseInt(index);
+limit = index + 10;
 
-GOOGLE_SHEET_DATA = `https://sheets.googleapis.com/v4/spreadsheets/14kAxmAOnmcKzVrMXvDOj5UH9wotudkLg5BgBJZS2vIs/values/A${post}:B${limit}?alt=json&key=AIzaSyAGGbFDiCtylTz0CJuF0gmbtscp_LOsyYI`;
+GOOGLE_SHEET_DATA = `https://sheets.googleapis.com/v4/spreadsheets/14kAxmAOnmcKzVrMXvDOj5UH9wotudkLg5BgBJZS2vIs/values/A${index}:B${limit}?alt=json&key=AIzaSyAGGbFDiCtylTz0CJuF0gmbtscp_LOsyYI`;
 
 function file_get_contents(url) {
     let request = null;
@@ -29,7 +29,7 @@ try {
 }
 
 document.write("<div class=\"posts\">");
-document.write(`<a href="?post=${post - 10}">Сюди</a>`);
-document.write(`<a href="?post=1">Останнє</a>`);
-document.write(`<a href="?post=${post + 10}">Туди</a>`);
+document.write(`<a href="?index=${index - 10}">Сюди</a>`);
+document.write(`<a href="?index=1">Останнє</a>`);
+document.write(`<a href="?index=${index + 10}">Туди</a>`);
 document.write("</div>");
