@@ -26,3 +26,7 @@ img {
     display: flex;
     justify-content: space-around;
 }
+
+.author {
+    text-align: right;
+}
