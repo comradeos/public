@@ -17,9 +17,8 @@
 
 .welcome {
     font-size: 25px;
-    font-weight: bold;
     text-align: center;
-    margin: 20px 0;
+    margin: 30px 0 15px 0;
 }
 
 .main form {
@@ -155,4 +154,146 @@ a:visited {
 
 a:hover {
     color: #2c8beb;
+}
+
+.new-form {
+    font-size: 12px;
+    /* border: 1px solid red; */
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.new-form .update {
+    font-size: 16px;
+    width: auto;
+    border-radius: 150px;
+    padding: 0px 40px;
+    height: 40px;
+    background-color: #5AE481;
+    color: #fff;
+}
+
+.control_block {
+    display: flex;
+    flex-direction: column;
+    width: 224.92px;
+    height: 92px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.control_block div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 35px;
+    align-items: center;
+}
+
+.control_block div input {
+    width: 123.7px;
+    height: 25px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.top_logo,
+.bottom_logo {
+    background-color: #2980B9;
+    height: 70px;
+    display: flex;
+}
+
+.top_logo {
+    justify-content: center;
+}
+
+.car_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.top_car {
+    width: 113px;
+    height: 47px;
+    background-image: url(./img/new/car_top.svg);
+}
+
+.top_title {
+    width: 192px;
+    height: 17px;
+    background-image: url(./img/new/top_title.svg);
+    background-repeat: no-repeat;
+    margin-top: 9px;
+    margin-left: 1px;
+}
+
+.cameras {
+    max-width: 880px;
+    margin: 70px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.camera_left,
+.camera_right {
+    width: 100px;
+    height: 75px;
+}
+
+.camera_left {
+    background-image: url(./img/new/camera_left.svg);
+}
+
+.camera_right {
+    background-image: url(./img/new/camera_right.svg);
+}
+
+.bottom_logo {
+    display: flex;
+    align-items: center;
+}
+
+.bottom_circle {
+    width: 50px;
+    height: 50px;
+    background-image: url(./img/new/bottom_circle_2.png);
+    margin-left: 10px;
+}
+
+.cars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 140px;
+}
+
+.car_left,
+.car_right {
+    width: 240px;
+    height: 73px;
+    background-repeat: no-repeat;
+}
+
+.car_left {
+    background-image: url(./img/new/car_left.svg);
+}
+
+.car_right {
+    background-image: url(./img/new/car_right.svg);
+}
+
+.body_blue {
+    background-color: #2980B9;
+}
+
+.container_new {
+    background-color: #fff;
 }

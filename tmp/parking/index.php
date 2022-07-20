@@ -16,40 +16,47 @@ require_once __DIR__ . '/core.php';
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="main">
+<body class="body_blue">
+
+    <div class="container_new">
+        <div class="top_logo">
+            <div class="car_title">
+                <div class="top_car"></div>
+                <div class="top_title"></div>
+            </div>
+        </div>
+
         <p class="welcome">Welcome, <?php echo $_SESSION['user']; ?> | <a href="logout.php">logout</a></p>
-        <form method="post">
-            <div><button class="<?php echo $cam1; ?>" name="camera_1">Camera №1</button></div>
-            <div><button class="alarm <?php echo $alarm; ?>" name="alarm">
-                    <!-- alarm (on/off) -->
-                </button></div>
-            <div class="car_area">
-                <!-- car area -->
-                <div class="car_model <?php echo "  $car $car_moving"; ?>">
-                    <!-- car model -->
+
+        <div class="cameras">
+            <div class="camera_left"></div>
+            <div class="camera_right"></div>
+        </div>
+
+        <div class="cars">
+            <div class="car_left"></div>
+            <div class="car_right"></div>
+        </div>
+
+        <form method="post" class="new-form">
+            <div class="control_block">
+                <div>
+                    <label>Reset Timer: </label>
+                    <input type="number" name="reset_timer" value="<?php echo $ini['reset_timer']; ?>" min=0 max=60>
+                </div>
+                <div>
+                    <label>Reset Alarm: </label>
+                    <input type="number" name="alarm_timer" value="<?php echo $ini['alarm_timer']; ?>" min=0 max=60>
                 </div>
             </div>
-            <div><button class="<?php echo $gate; ?>" name="gate">Gate (<?php echo $gate_oc; ?>)</button></div>
-            <div><button class="<?php echo $cam2; ?>" name="camera_2">Camera №2</button></div>
-            <table>
-                <tr>
-                    <td><label>Reset timer: </label></td>
-                    <td><input type="number" name="reset_timer" value="<?php echo $ini['reset_timer']; ?>" min=0 max=60></td>
-                    <td><label>(minutes)</label></td>
-                </tr>
-                <tr>
-                    <td><label>Reset alarm: </label></td>
-                    <td><input type="number" name="alarm_timer" value="<?php echo $ini['alarm_timer']; ?>" min=0 max=60></td>
-                    <td><label>(minutes)</label></td>
-                </tr>
-            </table>
-            <div class="btn"><button name="save">Save changes</button></div>
-            <div class="btn"><button name="hard_reset">Hard reset</button></div>
-
+            <button class="update" name="save">Update</button>
         </form>
 
+        <div class="bottom_logo">
+            <div class="bottom_circle"></div>
+        </div>
     </div>
+
 </body>
 
 </html>
