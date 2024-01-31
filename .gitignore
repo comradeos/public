@@ -1,1 +1,11 @@
 .DS_Store
+*.exe
+bin
+obj
+*.dll
+DesignTimeBuild
+FileContentIndex
+*.bin
+*.v2
+*.suo
+v17
