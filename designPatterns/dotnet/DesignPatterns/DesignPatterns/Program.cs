@@ -9,6 +9,7 @@ public static class Program
     {
         Console.OutputEncoding = Encoding.UTF8;
         // FactoryMethod.Demo();
-        AbstractFactory.Demo();
+        //AbstractFactory.Demo();
+        Bridge.Demo();
     }
 }
