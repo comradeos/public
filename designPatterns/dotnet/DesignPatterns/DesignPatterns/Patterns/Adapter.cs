@@ -16,7 +16,7 @@ public static class Adapter
         //створив інший урок
         French french = new French();
         //використав адаптер для переходу студента з університету до мовних курсів
-        IUniversity langSchool = new UniToLangSchoolAdapter(french);
+        IUniversity langSchool = new UniversityToLangSchoolAdapter(french);
         //викликав метод "навчання" для мовних курсів
         student.Studying(langSchool);
     }
@@ -59,10 +59,10 @@ class French : ILanguageSchool
 }
 //створив адаптер з конструктором (проініціалізував змінну адаптованого класу French) та з методом Lesson інтерфейсу IUni
 //де викликається метод для вивчення мови Learning
-class UniToLangSchoolAdapter : IUniversity
+class UniversityToLangSchoolAdapter : IUniversity
 {
     French french;
-    public UniToLangSchoolAdapter(French f)
+    public UniversityToLangSchoolAdapter(French f)
     {
         french = f;
     }
