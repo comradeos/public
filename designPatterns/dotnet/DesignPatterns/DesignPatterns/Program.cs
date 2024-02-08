@@ -12,6 +12,7 @@ public static class Program
         //AbstractFactory.Demo();
         //Bridge.Demo();
         //Adapter.Demo();
-        ChainOfResponsibility.Demo();
+        //ChainOfResponsibility.Demo();
+        Iterator.Demo();
     }
 }
