@@ -8,21 +8,27 @@ public static class ChainOfResponsibility
         Language language = new Language(false, true, false);
 
         //створив обробники для кожної мови
-        LanguageHandler englishHandler = new EnglishHandler();
-        LanguageHandler spanishHandler = new SpanishHandler();
-        LanguageHandler deutschHandler = new DeutschHandler();
+        IHandler englishHandler = new EnglishHandler();
+        IHandler spanishHandler = new SpanishHandler();
+        IHandler deutschHandler = new DeutschHandler();
 
         //встановив послідовність обробників в ланцюгу
-        englishHandler.Successor = deutschHandler;
-        deutschHandler.Successor = spanishHandler;
+        // Тут можна використати інтерфейс
+        ((LanguageHandler)englishHandler).Successor = (LanguageHandler)deutschHandler;
+        ((LanguageHandler)deutschHandler).Successor = (LanguageHandler)spanishHandler;
 
         //запустив обробник мови, що починається з першого (englishHandler) обробника в ланцюгу
         englishHandler.Handle(language);
     }
 }
 
+public interface IHandler
+{
+    void Handle(Language language);
+}
+
 //створив клас для мов з трьома різними параметрами (мовами) типу bool та проініціалізував їх в конструкторі
-class Language
+public class Language
 {
     public bool English { get; set; }
     public bool Spanish { get; set; }
@@ -37,7 +43,7 @@ class Language
 
 //створив абстрактний клас-обробник з властивістю Successor що вказуватиме на наступний обробник у ланцюгу
 //створив абстрактний метод Handle для обробки запитів на конкретну мову, метод реалізований в обробниках кожної мови
-abstract class LanguageHandler
+abstract class LanguageHandler : IHandler
 {
     public LanguageHandler? Successor { get; set; }
     public abstract void Handle(Language language);
