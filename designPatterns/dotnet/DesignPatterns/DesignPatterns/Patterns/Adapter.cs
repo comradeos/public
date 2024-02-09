@@ -1,6 +1,4 @@
-﻿using System.Reflection.Emit;
-
-namespace DesignPatterns.Patterns;
+﻿namespace DesignPatterns.Patterns;
 
 public static class Adapter
 {

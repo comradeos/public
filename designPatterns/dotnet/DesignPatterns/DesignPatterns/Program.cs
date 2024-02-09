@@ -11,6 +11,7 @@ public static class Program
         // FactoryMethod.Demo();
         //AbstractFactory.Demo();
         //Bridge.Demo();
-        Adapter.Demo();
+        //Adapter.Demo();
+        ChainOfResponsibility.Demo();
     }
 }
