@@ -57,6 +57,8 @@ require_once __DIR__ . '/core.php';
         </div>
     </div>
 
+    <!-- depricated file -->
+
 </body>
 
 </html>
